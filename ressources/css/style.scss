@@ -1,0 +1,232 @@
+@import 'var';
+@import 'mixins';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: 'Roboto Light', arial;
+}
+
+a {
+    text-decoration: none;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+h1,
+.footer__title {
+    font-family: $fonts-title;
+}
+
+body {
+    font-family: $fonts;
+}
+
+header {
+    @include flex-column-center;
+    text-align: center;
+    .location {
+        @include flex-row-center;
+        background-color: #eaeaea;
+        height: 2.5rem;
+        box-shadow: inset 0px 11px 3px -9px #ccc;
+
+        &__marker {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.reservation {
+    @include flex-column-center;
+    text-align: center;
+    align-items: center;
+    background-color: #f6f6f6;
+
+    &__title {
+        text-align: center;
+        margin: 3rem 2rem 0rem 2rem;
+    }
+
+    &__text {
+        margin: 1rem 2rem 2rem 2rem;
+    }
+
+    &__button {
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+        padding: 1rem 1rem 1rem 1rem;
+        border-radius: 2rem;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        background-size: 200%;
+        background-image: $gradiant;
+        background-position: 80%;
+        box-shadow: 0 0 5px #0000002e;
+        margin-bottom: 3rem;
+    }
+
+    &__button:hover {
+        transform: scale(1.05);
+        background-position: 30%;
+    }
+}
+
+.tutorial {
+    margin: 3rem 1.5rem 4rem 1.5rem;
+
+    &__list {
+        @include flex-column-center;
+    }
+
+    &__number {
+        @include flex-row-center;
+        color: #fff;
+        position: absolute;
+        left: -0.9rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #9356DC;
+        border: 1px solid #9356DC;
+        border-radius: 1rem;
+    }
+
+    &__logo {
+        position: absolute;
+        left: 1.1rem;
+        color: #bdbdbd;
+    }
+
+    &__button {
+        @include flex-row-center;
+        background-color: #f6f6f6;
+        border-radius: 2rem;
+        box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(214 209 209 / 70%);
+        margin-top: 2rem;
+        height: 4rem;
+        transition: all 0.2s ease-in;
+        position: relative;
+    }
+
+    &__button:hover {
+        background-color: #f5edff;
+        box-shadow: 10px 20px 19px rgb(0 0 0 / 10%);
+        transform: scale(1.01);
+    }
+}
+
+.restaurants {
+    background-color: #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 3.5rem;
+
+    &__grid {
+        @include flex-column-center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__new {
+        padding: 0.5rem;
+        background-color: #99E2D0;
+        color: #35a78b;
+        font-weight: bold;
+        position: absolute;
+        right: 1.5rem;
+        top: 1rem;
+    }
+
+    &__card {
+        position: relative;
+        width: 80%;
+        border-radius: 1rem;
+    }
+
+    &__images {
+        height: 12rem;
+        overflow: hidden;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    &__images img {
+        object-fit: cover;
+        height: 12rem;
+        width: 100%;
+    }
+
+    &__description {
+        color: black;
+        background-color: white;
+        border-radius: 0 0 1rem 1rem;
+        margin-bottom: 2rem;
+
+        & p,
+        h3 {
+            font-size: 100%;
+        }
+
+        & h3 {
+            padding: 1rem 1rem 0rem 1rem;
+        }
+
+        & p {
+            padding: 1rem 1rem 1rem 1rem;
+        }
+    }
+
+    &__like--empty, &__like--filled {
+        font-size: 1.5rem;
+        position: absolute;
+        bottom: 3.5rem;
+        right: 2rem;
+        cursor: grab;
+        transition: all .3s ease-in-out;
+    }
+    &__like--empty {
+        opacity: 1;
+    }
+    &__like--filled {
+        opacity: 0;
+    }
+    &__like--empty:hover {
+        opacity: 0;
+    }
+    &__like--filled:hover {
+        opacity: 1;
+        background: $gradiant;
+        -webkit-background-clip: text;
+        color: transparent;
+        border-radius: 0.5rem;
+    }
+}
+
+.footer {
+    @include footer-template-mobile;
+
+    &__title {
+        margin: 1.5rem 0rem 1.5rem 2.5rem;
+    }
+
+    &__list {
+        margin: 1rem 0rem 1rem 0rem
+    }
+
+    &__item {
+        list-style-type: none;
+        margin-left: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__item a {
+        color: white;
+    }
+}

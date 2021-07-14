@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: "Roboto Light", arial;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+h1,
+.footer__title {
+  font-family: "Shrikhand", cursive;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+header .location {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  height: 2.5rem;
+  box-shadow: inset 0px 11px 3px -9px #ccc;
+}
+header .location__marker {
+  margin-right: 0.5rem;
+}
+
+.reservation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: #f6f6f6;
+}
+.reservation__title {
+  text-align: center;
+  margin: 3rem 2rem 0rem 2rem;
+}
+.reservation__text {
+  margin: 1rem 2rem 2rem 2rem;
+}
+.reservation__button {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-size: 200%;
+  background-image: linear-gradient(90deg, #FF79DA, #9356DC);
+  background-position: 80%;
+  box-shadow: 0 0 5px #0000002e;
+  margin-bottom: 3rem;
+}
+.reservation__button:hover {
+  transform: scale(1.05);
+  background-position: 30%;
+}
+
+.tutorial {
+  margin: 3rem 1.5rem 4rem 1.5rem;
+}
+.tutorial__list {
+  display: flex;
+  flex-direction: column;
+}
+.tutorial__number {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: absolute;
+  left: -0.9rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #9356DC;
+  border: 1px solid #9356DC;
+  border-radius: 1rem;
+}
+.tutorial__logo {
+  position: absolute;
+  left: 1.1rem;
+  color: #bdbdbd;
+}
+.tutorial__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  border-radius: 2rem;
+  box-shadow: 0 0.1rem 0.2rem 0.2rem rgba(214, 209, 209, 0.7);
+  margin-top: 2rem;
+  height: 4rem;
+  transition: all 0.2s ease-in;
+  position: relative;
+}
+.tutorial__button:hover {
+  background-color: #f5edff;
+  box-shadow: 10px 20px 19px rgba(0, 0, 0, 0.1);
+  transform: scale(1.01);
+}
+
+.restaurants {
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 3.5rem;
+}
+.restaurants__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.restaurants__new {
+  padding: 0.5rem;
+  background-color: #99E2D0;
+  color: #35a78b;
+  font-weight: bold;
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+}
+.restaurants__card {
+  position: relative;
+  width: 80%;
+  border-radius: 1rem;
+}
+.restaurants__images {
+  height: 12rem;
+  overflow: hidden;
+  border-radius: 1rem 1rem 0 0;
+}
+.restaurants__images img {
+  object-fit: cover;
+  height: 12rem;
+  width: 100%;
+}
+.restaurants__description {
+  color: black;
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
+  margin-bottom: 2rem;
+}
+.restaurants__description p,
+.restaurants__description h3 {
+  font-size: 100%;
+}
+.restaurants__description h3 {
+  padding: 1rem 1rem 0rem 1rem;
+}
+.restaurants__description p {
+  padding: 1rem 1rem 1rem 1rem;
+}
+.restaurants__like--empty, .restaurants__like--filled {
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 3.5rem;
+  right: 2rem;
+  cursor: grab;
+  transition: all 0.3s ease-in-out;
+}
+.restaurants__like--empty {
+  opacity: 1;
+}
+.restaurants__like--filled {
+  opacity: 0;
+}
+.restaurants__like--empty:hover {
+  opacity: 0;
+}
+.restaurants__like--filled:hover {
+  opacity: 1;
+  background: linear-gradient(90deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  color: transparent;
+  border-radius: 0.5rem;
+}
+
+.footer {
+  background-color: #353535;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.footer__title {
+  margin: 1.5rem 0rem 1.5rem 2.5rem;
+}
+.footer__list {
+  margin: 1rem 0rem 1rem 0rem;
+}
+.footer__item {
+  list-style-type: none;
+  margin-left: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.footer__item a {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */
