@@ -9,14 +9,6 @@ p {
   font-family: "Roboto Light", arial;
 }
 
-a {
-  text-decoration: none;
-}
-
-h3 {
-  font-weight: bold;
-}
-
 h1,
 .footer__title {
   font-family: "Shrikhand", cursive;
@@ -26,6 +18,81 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: white;
+  z-index: -1;
+  font-size: 6.5rem;
+  animation: loader 3s;
+}
+.loader__dot {
+  align-items: center;
+  position: relative;
+  animation: blink 1s;
+}
+.loader__dot.one {
+  animation-delay: 0.3s;
+}
+.loader__dot.two {
+  animation-delay: 0.6s;
+}
+.loader__dot.three {
+  animation-delay: 0.9s;
+}
+
+@keyframes loader {
+  0% {
+    background-color: #9356DC;
+    z-index: 2;
+    font-size: 3.5rem;
+  }
+  33% {
+    background-color: #9356DC;
+    z-index: 2;
+    font-size: 6.5rem;
+  }
+  66% {
+    background-color: #9356DC;
+    z-index: 2;
+    font-size: 3.5rem;
+  }
+  99% {
+    background-color: #9356DC;
+    z-index: 2;
+  }
+  100% {
+    z-index: -1;
+    font-size: 6.5rem;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 header {
   display: flex;
   flex-direction: column;
@@ -99,7 +166,7 @@ header .location__marker {
 }
 .tutorial__logo {
   position: absolute;
-  left: 1.1rem;
+  left: 2rem;
   color: #bdbdbd;
 }
 .tutorial__button {
@@ -120,12 +187,15 @@ header .location__marker {
   box-shadow: 10px 20px 19px rgba(0, 0, 0, 0.1);
   transform: scale(1.01);
 }
+.tutorial__button:hover > .tutorial__logo {
+  color: #9356DC;
+}
 
 .restaurants {
-  background-color: #efefef;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #efefef;
   padding-top: 3.5rem;
 }
 .restaurants__grid {
