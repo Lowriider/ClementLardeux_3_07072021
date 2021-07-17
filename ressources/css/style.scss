@@ -1,34 +1,10 @@
-@import 'var';
-@import 'mixins';
+@import './utils/var';
+@import './utils/mixins';
+@import './pages/pages';
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    font-family: $font-light;
-}
-
-h1,
-.footer__title {
-    font-family: $fonts-title;
-}
-
-body {
-    font-family: $fonts;
-}
-
-a {
-    text-decoration: none;
-}
-
-h3 {
-    font-weight: bold;
-}
-
+@include general-style;
 
 .loader {
     @include flex-row-center;
@@ -79,11 +55,11 @@ h3 {
     99% {
         background-color: #9356DC;
         z-index: 2;
+        font-size: 6.5rem;
     }
 
     100% {
         z-index: -1;
-        font-size: 6.5rem;
     }
 }
 @keyframes blink {
@@ -104,16 +80,14 @@ h3 {
     }
 }
 
-
-
-
-
-
-header {
+.header {
     @include flex-column-center;
     text-align: center;
-
-    .location {
+    &__logo {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    &__location {
         @include flex-row-center;
         background-color: #eaeaea;
         height: 2.5rem;
@@ -141,30 +115,22 @@ header {
     }
 
     &__button {
-        font-family: 'Roboto', sans-serif;
-        color: #fff;
-        padding: 1rem 1rem 1rem 1rem;
-        border-radius: 2rem;
-        cursor: pointer;
-        transition: all .3s ease-in-out;
-        background-size: 200%;
-        background-image: $gradiant;
-        background-position: 80%;
-        box-shadow: 0 0 5px #0000002e;
-        margin-bottom: 3rem;
+       @include button
     }
 
     &__button:hover {
-        transform: scale(1.05);
-        background-position: 30%;
+        @include button-hover
     }
 }
 
 .tutorial {
-    margin: 3rem 1.5rem 4rem 1.5rem;
+    margin: 3rem 1rem 4rem 2rem;
 
     &__list {
         @include flex-column-center;
+        @include breakpoint(tablet) {
+            margin:0 10rem;
+        }
     }
 
     &__number {
@@ -181,17 +147,21 @@ header {
 
     &__logo {
         position: absolute;
-        left: 2rem;
+        left: 8%;
         color: #bdbdbd;
+        font-size: 20px;
+        @include breakpoint(mobilemed) {
+            left: 12%;
+        }
     }
 
     &__button {
         @include flex-row-center;
         background-color: #f6f6f6;
-        border-radius: 2rem;
+        border-radius: 1.5rem;
         box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(214 209 209 / 70%);
         margin-top: 2rem;
-        height: 4rem;
+        height: 5rem;
         transition: all 0.2s ease-in;
         position: relative;
     }
@@ -209,14 +179,24 @@ header {
 
 .restaurants {
     @include flex-column-center;
+    padding: 3.5rem 1rem 4rem 1rem;
     justify-content: center;
     background-color: #efefef;
-    padding-top: 3.5rem;
+
+    &__title {
+        margin-bottom: 1rem;
+        @include breakpoint(tablet) {
+            margin-left: 3%;
+        }
+    }
 
     &__grid {
         @include flex-column-center;
         align-items: center;
         flex-wrap: wrap;
+        @include breakpoint(tablet) {
+            @include resto-template-desktop;
+        }
     }
 
     &__new {
@@ -231,8 +211,11 @@ header {
 
     &__card {
         position: relative;
-        width: 80%;
+        width: 100%;
         border-radius: 1rem;
+        @include breakpoint(tablet) {
+            width:45%;
+        }
     }
 
     &__images {
@@ -263,59 +246,22 @@ header {
         }
 
         & p {
-            padding: 1rem 1rem 1rem 1rem;
+            padding: 0.5rem 1rem 1rem 1rem;
         }
     }
-
+    @include heart-like-anim;
     &__like--empty,
     &__like--filled {
-        font-size: 1.5rem;
-        position: absolute;
         bottom: 3.5rem;
         right: 2rem;
-        cursor: grab;
-        transition: all .3s ease-in-out;
-    }
-
-    &__like--empty {
-        opacity: 1;
-    }
-
-    &__like--filled {
-        opacity: 0;
-    }
-
-    &__like--empty:hover {
-        opacity: 0;
-    }
-
-    &__like--filled:hover {
-        opacity: 1;
-        background: $gradiant;
-        -webkit-background-clip: text;
-        color: transparent;
-        border-radius: 0.5rem;
     }
 }
 
 .footer {
+    @include footer-rules;
     @include footer-template-mobile;
-
-    &__title {
-        margin: 1.5rem 0rem 1.5rem 2.5rem;
+    @include breakpoint(phablet) {
+        @include footer-template-desktop;
     }
 
-    &__list {
-        margin: 1rem 0rem 1rem 0rem
-    }
-
-    &__item {
-        list-style-type: none;
-        margin-left: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    &__item a {
-        color: white;
-    }
 }

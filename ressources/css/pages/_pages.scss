@@ -1,0 +1,45 @@
+.header-pages {
+    @include flex-column-center;
+    align-items: center;
+    &__link {
+        position: absolute;
+        left: 1.2rem;
+        top: 0.5rem;
+        font-weight: 900;
+        font-size: 25px;
+        color: black;
+    }
+    &__logo {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    &__img {
+        width: 100%;
+        height: 18rem;
+        object-fit: cover;
+    }
+}
+
+.menu {
+    @include flex-column-center;
+    @include heart-like-anim;
+    padding: 2rem 1rem 2rem 1rem;
+    position: relative;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    background-color: #f6f6f6;
+    bottom: 3rem;
+    z-index: 1;
+    justify-content: space-around;
+    &__like--empty,
+    &__like--filled {
+        top: 2rem;
+        right: 1rem;
+    }
+    &__title { 
+    }
+    &__button {
+        @include button;
+        @include button-hover
+    }
+}

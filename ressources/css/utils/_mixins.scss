@@ -1,0 +1,167 @@
+@mixin general-style {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    p {
+        font-family: $font-light;
+    }
+    
+    h1,
+    .footer__title, .menu__title {
+        font-family: $fonts-title;
+    }
+    
+    body {
+        font-family: $fonts;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    h3 {
+        font-weight: bold;
+    }
+}
+@mixin footer-template-mobile {
+    background-color: #353535;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin footer-template-desktop {
+    background-color: #353535;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin footer-rules {
+    &__title {
+        margin: 1.5rem 0rem 1.5rem 2.5rem;
+    }
+
+    &__list {
+        margin: 1rem 0rem 1rem 0rem
+    }
+
+    &__item {
+        list-style-type: none;
+        margin-left: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__item a {
+        color: white;
+    }
+}
+
+@mixin resto-template-desktop {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin button {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    background-size: 200%;
+    background-image: $gradiant;
+    background-position: 80%;
+    box-shadow: 0 0 5px #0000002e;
+    margin-bottom: 3rem;
+}
+
+@mixin button-hover {
+    transform: scale(1.05);
+    background-position: 30%;
+}
+
+@mixin heart-like-anim {
+
+    &__like--empty,
+    &__like--filled {
+        font-size: 1.5rem;
+        position: absolute;
+        bottom: 3.5rem;
+        right: 2rem;
+        cursor: grab;
+        transition: all .3s ease-in-out;
+    }
+
+    &__like--empty {
+        opacity: 1;
+    }
+
+    &__like--filled {
+        opacity: 0;
+    }
+
+    &__like--empty:hover {
+        opacity: 0;
+    }
+
+    &__like--filled:hover {
+        opacity: 1;
+        background: $gradiant;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        border-radius: 0.5rem;
+    }
+}
+
+/*********************
+BREAKPOINTS
+*********************/
+
+@mixin breakpoint($point) {
+    @if $point==desktop {
+        @media (min-width:1340px) {
+            @content ;
+        }
+    }
+
+    @else if $point==laptop {
+        @media (min-width: 1024px) {
+            @content ;
+        }
+    }
+
+    @else if $point==tablet {
+        @media (min-width: 768px) {
+            @content ;
+        }
+    }
+
+    @else if $point==phablet {
+        @media (min-width: 580px) {
+            @content ;
+        }
+    }
+
+    @else if $point==mobilemed {
+        @media (min-width: 375px) {
+            @content ;
+        }
+
+    }
+}

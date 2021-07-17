@@ -1,5 +1,88 @@
+/*********************
+BREAKPOINTS
+*********************/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+.header-pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-pages__link {
+  position: absolute;
+  left: 1.2rem;
+  top: 0.5rem;
+  font-weight: 900;
+  font-size: 25px;
+  color: black;
+}
+.header-pages__logo {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.header-pages__img {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem 2rem 1rem;
+  position: relative;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-color: #f6f6f6;
+  bottom: 3rem;
+  z-index: 1;
+  justify-content: space-around;
+}
+.menu__like--empty, .menu__like--filled {
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 3.5rem;
+  right: 2rem;
+  cursor: grab;
+  transition: all 0.3s ease-in-out;
+}
+.menu__like--empty {
+  opacity: 1;
+}
+.menu__like--filled {
+  opacity: 0;
+}
+.menu__like--empty:hover {
+  opacity: 0;
+}
+.menu__like--filled:hover {
+  opacity: 1;
+  background: linear-gradient(90deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border-radius: 0.5rem;
+}
+.menu__like--empty, .menu__like--filled {
+  top: 2rem;
+  right: 1rem;
+}
+.menu__button {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-size: 200%;
+  background-image: linear-gradient(90deg, #FF79DA, #9356DC);
+  background-position: 80%;
+  box-shadow: 0 0 5px #0000002e;
+  margin-bottom: 3rem;
+  transform: scale(1.05);
+  background-position: 30%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +93,7 @@ p {
 }
 
 h1,
-.footer__title {
+.footer__title, .menu__title {
   font-family: "Shrikhand", cursive;
 }
 
@@ -73,10 +156,10 @@ h3 {
   99% {
     background-color: #9356DC;
     z-index: 2;
+    font-size: 6.5rem;
   }
   100% {
     z-index: -1;
-    font-size: 6.5rem;
   }
 }
 @keyframes blink {
@@ -93,12 +176,16 @@ h3 {
     opacity: 0;
   }
 }
-header {
+.header {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-header .location {
+.header__logo {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.header__location {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -107,7 +194,7 @@ header .location {
   height: 2.5rem;
   box-shadow: inset 0px 11px 3px -9px #ccc;
 }
-header .location__marker {
+.header__location__marker {
   margin-right: 0.5rem;
 }
 
@@ -144,11 +231,16 @@ header .location__marker {
 }
 
 .tutorial {
-  margin: 3rem 1.5rem 4rem 1.5rem;
+  margin: 3rem 1rem 4rem 2rem;
 }
 .tutorial__list {
   display: flex;
   flex-direction: column;
+}
+@media (min-width: 768px) {
+  .tutorial__list {
+    margin: 0 10rem;
+  }
 }
 .tutorial__number {
   display: flex;
@@ -166,8 +258,14 @@ header .location__marker {
 }
 .tutorial__logo {
   position: absolute;
-  left: 2rem;
+  left: 8%;
   color: #bdbdbd;
+  font-size: 20px;
+}
+@media (min-width: 375px) {
+  .tutorial__logo {
+    left: 12%;
+  }
 }
 .tutorial__button {
   display: flex;
@@ -175,10 +273,10 @@ header .location__marker {
   justify-content: center;
   align-items: center;
   background-color: #f6f6f6;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   box-shadow: 0 0.1rem 0.2rem 0.2rem rgba(214, 209, 209, 0.7);
   margin-top: 2rem;
-  height: 4rem;
+  height: 5rem;
   transition: all 0.2s ease-in;
   position: relative;
 }
@@ -194,15 +292,29 @@ header .location__marker {
 .restaurants {
   display: flex;
   flex-direction: column;
+  padding: 3.5rem 1rem 4rem 1rem;
   justify-content: center;
   background-color: #efefef;
-  padding-top: 3.5rem;
+}
+.restaurants__title {
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .restaurants__title {
+    margin-left: 3%;
+  }
 }
 .restaurants__grid {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+  .restaurants__grid {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 .restaurants__new {
   padding: 0.5rem;
@@ -215,8 +327,13 @@ header .location__marker {
 }
 .restaurants__card {
   position: relative;
-  width: 80%;
+  width: 100%;
   border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .restaurants__card {
+    width: 45%;
+  }
 }
 .restaurants__images {
   height: 12rem;
@@ -242,7 +359,7 @@ header .location__marker {
   padding: 1rem 1rem 0rem 1rem;
 }
 .restaurants__description p {
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
 }
 .restaurants__like--empty, .restaurants__like--filled {
   font-size: 1.5rem;
@@ -265,8 +382,13 @@ header .location__marker {
   opacity: 1;
   background: linear-gradient(90deg, #FF79DA, #9356DC);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   border-radius: 0.5rem;
+}
+.restaurants__like--empty, .restaurants__like--filled {
+  bottom: 3.5rem;
+  right: 2rem;
 }
 
 .footer {
@@ -288,6 +410,14 @@ header .location__marker {
 }
 .footer__item a {
   color: white;
+}
+@media (min-width: 580px) {
+  .footer {
+    background-color: #353535;
+    color: white;
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
