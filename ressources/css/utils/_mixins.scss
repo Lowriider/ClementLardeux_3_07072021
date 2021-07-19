@@ -3,28 +3,30 @@
         margin: 0;
         padding: 0;
     }
-    
+
     p {
         font-family: $font-light;
     }
-    
+
     h1,
-    .footer__title, .menu__title {
+    .footer__title,
+    .menu__title {
         font-family: $fonts-title;
     }
-    
+
     body {
         font-family: $fonts;
     }
-    
+
     a {
         text-decoration: none;
     }
-    
+
     h3 {
         font-weight: bold;
     }
 }
+
 @mixin footer-template-mobile {
     background-color: #353535;
     color: white;
@@ -162,6 +164,5 @@ BREAKPOINTS
         @media (min-width: 375px) {
             @content ;
         }
-
     }
 }

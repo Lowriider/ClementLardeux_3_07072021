@@ -3,6 +3,28 @@ BREAKPOINTS
 *********************/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@keyframes fadeIn {
+  from {
+    top: 4rem;
+    opacity: 0;
+  }
+  to {
+    top: 0rem;
+    opacity: 1;
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+main {
+  background-color: #f6f6f6;
+}
+
 .header-pages {
   display: flex;
   flex-direction: column;
@@ -11,7 +33,7 @@ BREAKPOINTS
 .header-pages__link {
   position: absolute;
   left: 1.2rem;
-  top: 0.5rem;
+  top: 1.5rem;
   font-weight: 900;
   font-size: 25px;
   color: black;
@@ -63,9 +85,127 @@ BREAKPOINTS
   color: transparent;
   border-radius: 0.5rem;
 }
+@media (min-width: 580px) {
+  .menu {
+    padding: 2rem 4rem 2rem 4rem;
+  }
+}
+.menu hr {
+  height: 0.2rem;
+  width: 2.6rem;
+  border: none;
+  background-color: #99E2D0;
+  margin-left: 0;
+  margin-bottom: 2rem;
+}
+.menu h3, .menu h3, .menu h3 {
+  font-size: 100%;
+}
+@media (min-width: 580px) {
+  .menu__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 1340px) {
+  .menu__list {
+    margin: 0 10% 0 10%;
+  }
+}
+.menu__title {
+  margin-bottom: 2rem;
+}
+@media (min-width: 580px) {
+  .menu__title {
+    text-align: center;
+  }
+}
 .menu__like--empty, .menu__like--filled {
-  top: 2rem;
+  top: 2.3rem;
   right: 1rem;
+}
+@media (min-width: 375px) {
+  .menu__like--empty, .menu__like--filled {
+    right: 2rem;
+  }
+}
+.menu__list h2 {
+  font-size: 15px;
+  font-weight: lighter;
+  margin-bottom: 0.5rem;
+}
+.menu__starter, .menu__maincourse, .menu__dessert {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px #0000002e;
+  margin-bottom: 2rem;
+  height: 4rem;
+  position: relative;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  animation: fadeIn 0.7s ease-in both, top 0.5s linear;
+}
+@media (min-width: 580px) {
+  .menu__starter, .menu__maincourse, .menu__dessert {
+    width: 70%;
+  }
+}
+.menu__starter:hover .menu__description, .menu__maincourse:hover .menu__description, .menu__dessert:hover .menu__description {
+  width: 50%;
+}
+.menu__starter:hover .menu__price, .menu__maincourse:hover .menu__price, .menu__dessert:hover .menu__price {
+  left: 65%;
+}
+.menu__starter:hover .menu__check, .menu__maincourse:hover .menu__check, .menu__dessert:hover .menu__check {
+  left: 80%;
+  visibility: visible;
+  width: 20%;
+}
+.menu__starter:hover .menu__check i, .menu__starter:hover .menu__check i, .menu__starter:hover .menu__check i, .menu__maincourse:hover .menu__check i, .menu__maincourse:hover .menu__check i, .menu__maincourse:hover .menu__check i, .menu__dessert:hover .menu__check i, .menu__dessert:hover .menu__check i, .menu__dessert:hover .menu__check i {
+  animation: rotation 0.3s linear 0.3s;
+  visibility: visible;
+}
+.menu__description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  top: 3rem;
+  font-size: 95%;
+  width: 70%;
+}
+.menu__price {
+  position: absolute;
+  top: 3rem;
+  font-weight: bold;
+  left: 85%;
+}
+.menu__check {
+  position: absolute;
+  background-color: #99E2D0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  bottom: 0rem;
+  width: 0%;
+  justify-content: center;
+  border-top-right-radius: 0.9rem;
+  border-bottom-right-radius: 0.9rem;
+  left: 100%;
+  color: #fff;
+  font-size: 1.375rem;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.menu__check__check i {
+  visibility: hidden;
+}
+.menu__order {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 .menu__button {
   font-family: "Roboto", sans-serif;
@@ -79,6 +219,10 @@ BREAKPOINTS
   background-position: 80%;
   box-shadow: 0 0 5px #0000002e;
   margin-bottom: 3rem;
+  width: 9rem;
+  text-align: center;
+}
+.menu__button:hover {
   transform: scale(1.05);
   background-position: 30%;
 }
@@ -93,7 +237,8 @@ p {
 }
 
 h1,
-.footer__title, .menu__title {
+.footer__title,
+.menu__title {
   font-family: "Shrikhand", cursive;
 }
 
